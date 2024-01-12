@@ -119,7 +119,7 @@ export const search = async (req, res, next) => {
   const query = req.query.q;
   try {
     const videos = await Video.find({
-      title: { $regex: query, $options: "i" },
+      title: { $regex: query, $options: "i" },    //case independent
     }).limit(40);
     res.status(200).json(videos);
   } catch (err) {
