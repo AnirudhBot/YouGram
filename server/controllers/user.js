@@ -1,8 +1,7 @@
 import mongoose from "mongoose";
-import bcrypt from "bcrypt";
 import User from "../models/User.js";
+import Video from "../models/Video.js";
 import { createError } from "../error.js";
-import jwt from "jsonwebtoken";
 
 //update current user
 export const update = async (req, res, next) => {

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import LamaTube from "../img/logo.png";
+import YouGram from "../img/logo.png";
 import HomeIcon from "@mui/icons-material/Home";
 import ExploreOutlinedIcon from "@mui/icons-material/ExploreOutlined";
 import SubscriptionsOutlinedIcon from "@mui/icons-material/SubscriptionsOutlined";
@@ -87,22 +87,32 @@ const Menu = ({ darkMode, setDarkMode }) => {
       <Wrapper>
         <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
           <Logo>
-            <Img src={LamaTube} />
-            LamaTube
+            <Img src={YouGram} />
+            YouGram
           </Logo>
         </Link>
         <Item>
           <HomeIcon />
           Home
         </Item>
-        <Item>
-          <ExploreOutlinedIcon />
-          Explore
-        </Item>
-        <Item>
-          <SubscriptionsOutlinedIcon />
-          Subscriptions
-        </Item>
+        <Link
+          to="explore"
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          <Item>
+            <ExploreOutlinedIcon />
+            Explore
+          </Item>
+        </Link>
+        <Link
+          to="subscriptions"
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          <Item>
+            <SubscriptionsOutlinedIcon />
+            Subscriptions
+          </Item>
+        </Link>
         <Hr />
         <Item>
           <VideoLibraryOutlinedIcon />
@@ -115,7 +125,7 @@ const Menu = ({ darkMode, setDarkMode }) => {
         <Hr />
         <Login>
           Sign in to like videos, comment, and subscribe.
-          <Link to="signin" style={{textDecoration:"none"}}>
+          <Link to="signin" style={{ textDecoration: "none" }}>
             <Button>
               <AccountCircleOutlinedIcon />
               SIGN IN
@@ -123,7 +133,7 @@ const Menu = ({ darkMode, setDarkMode }) => {
           </Link>
         </Login>
         <Hr />
-        <Title>BEST OF LAMATUBE</Title>
+        <Title>BEST OF YouGram</Title>
         <Item>
           <LibraryMusicOutlinedIcon />
           Music
