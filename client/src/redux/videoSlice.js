@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  currentUser: null,
+  currentVideo: null,
   loading: false,
   error: false,
 };
 
-export const userSlice = createSlice({
-  name: "user",
+export const videoSlice = createSlice({
+  name: "video",
   initialState,
   reducers: {
     loginStart: (state) => {
@@ -15,14 +15,14 @@ export const userSlice = createSlice({
     },
     loginSuccess: (state, action) => {
       state.loading = false;
-      state.currentUser = action.payload;
+      state.currentVideo = action.payload;
     },
     loginFailure: (state) => {
       state.loading = false;
       state.error = true;
     },
     logout: (state) => {
-      state.currentUser = null;
+      state.currentVideo = null;
       state.loading = false;
       state.error = false;
     },
@@ -30,6 +30,6 @@ export const userSlice = createSlice({
 });
 
 export const { loginStart, loginSuccess, loginFailure, logout } =
-  userSlice.actions;
+  videoSlice.actions;
 
-export default userSlice.reducer;
+export default videoSlice.reducer;
