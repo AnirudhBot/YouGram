@@ -36,7 +36,7 @@ app.use((err, req, res, next) => {
   return res.status(status).json({ success: false, status, message });
 });
 
-app.listen(8800, () => {
+app.listen(process.env.PORT || 8800, () => {
   connect();
   console.log("server running");
 });
