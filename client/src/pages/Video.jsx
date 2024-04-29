@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useDispatch } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import ThumbDownIcon from "@mui/icons-material/ThumbDown";
