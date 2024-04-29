@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import YouGram from "../img/logo.png";
+import LamaTube from "../img/logo.png";
 import HomeIcon from "@mui/icons-material/Home";
 import ExploreOutlinedIcon from "@mui/icons-material/ExploreOutlined";
 import SubscriptionsOutlinedIcon from "@mui/icons-material/SubscriptionsOutlined";
@@ -22,7 +22,7 @@ import { useSelector } from "react-redux";
 const Container = styled.div`
   flex: 1;
   background-color: ${({ theme }) => theme.bgLighter};
-  height: 100vh;
+  // height: 100vh;
   color: ${({ theme }) => theme.text};
   font-size: 14px;
   position: sticky;
@@ -90,7 +90,7 @@ const Menu = ({ darkMode, setDarkMode }) => {
       <Wrapper>
         <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
           <Logo>
-            <Img src={YouGram} />
+            <Img src={LamaTube} />
             YouGram
           </Logo>
         </Link>
@@ -98,7 +98,7 @@ const Menu = ({ darkMode, setDarkMode }) => {
           <HomeIcon />
           Home
         </Item>
-        <Link to="explore" style={{ textDecoration: "none", color: "inherit" }}>
+        <Link to="trends" style={{ textDecoration: "none", color: "inherit" }}>
           <Item>
             <ExploreOutlinedIcon />
             Explore
@@ -123,7 +123,7 @@ const Menu = ({ darkMode, setDarkMode }) => {
           History
         </Item>
         <Hr />
-        {!currentUser && (
+        {!currentUser &&
           <>
             <Login>
               Sign in to like videos, comment, and subscribe.
@@ -136,8 +136,8 @@ const Menu = ({ darkMode, setDarkMode }) => {
             </Login>
             <Hr />
           </>
-        )}
-        <Title>BEST OF YouGram</Title>
+        }
+        <Title>BEST OF LAMATUBE</Title>
         <Item>
           <LibraryMusicOutlinedIcon />
           Music

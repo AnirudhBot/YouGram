@@ -10,26 +10,41 @@ export const videoSlice = createSlice({
   name: "video",
   initialState,
   reducers: {
-    loginStart: (state) => {
+    fetchStart: (state) => {
       state.loading = true;
     },
-    loginSuccess: (state, action) => {
+    fetchSuccess: (state, action) => {
       state.loading = false;
       state.currentVideo = action.payload;
     },
-    loginFailure: (state) => {
+    fetchFailure: (state) => {
       state.loading = false;
       state.error = true;
     },
-    logout: (state) => {
-      state.currentVideo = null;
-      state.loading = false;
-      state.error = false;
+    like: (state, action) => {
+      if (!state.currentVideo.likes.includes(action.payload)) {
+        state.currentVideo.likes.push(action.payload);
+        state.currentVideo.dislikes.splice(
+          state.currentVideo.dislikes.findIndex(
+            (userId) => userId === action.payload
+          )
+        );
+      }
+    },
+    dislike: (state, action) => {
+      if (!state.currentVideo.dislikes.includes(action.payload)) {
+        state.currentVideo.dislikes.push(action.payload);
+        state.currentVideo.likes.splice(
+          state.currentVideo.likes.findIndex(
+            (userId) => userId === action.payload
+          )
+        );
+      }
     },
   },
 });
 
-export const { loginStart, loginSuccess, loginFailure, logout } =
+export const { fetchStart, fetchSuccess, fetchFailure, like, dislike } =
   videoSlice.actions;
 
 export default videoSlice.reducer;
