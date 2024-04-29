@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import cors from "cors";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import authRoutes from "./routes/auth.js";
@@ -9,6 +10,7 @@ import commentRoutes from "./routes/comments.js";
 
 const app = express();
 dotenv.config();
+app.use(cors());
 
 const connect = () => {
   mongoose
