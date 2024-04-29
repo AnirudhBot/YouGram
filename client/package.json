@@ -47,5 +47,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://yougram.onrender.com/"
+  "proxy": "https://yougram.onrender.com/api"
 }
