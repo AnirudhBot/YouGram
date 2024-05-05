@@ -30,7 +30,11 @@ export const signin = async (req, res, next) => {
     const token = jwt.sign({ id: user._id }, process.env.JWT); //generating access token
     const { password, ...others } = user._doc; //removing user password from response json
     res
-      .cookie("access_token", token, { httpOnly: false, sameSite: "none", secure: true })
+      .cookie("access_token", token, {
+        httpOnly: false,
+        same_site: "none",
+        secure: true,
+      })
       .status(200)
       .json(others);
   } catch (err) {
