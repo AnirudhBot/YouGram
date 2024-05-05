@@ -76,7 +76,11 @@ const SignIn = () => {
     e.preventDefault();
     dispatch(loginStart());
     try {
-      const res = await axios.post(`${process.env.REACT_APP_API}/auth/signin`, { name, password });
+      const res = await axios.post(
+        `${process.env.REACT_APP_API}/auth/signin`,
+        { name, password },
+        { withCredentials: true }
+      );
       dispatch(loginSuccess(res.data));
     } catch (err) {
       dispatch(loginFailure());
@@ -87,7 +91,7 @@ const SignIn = () => {
     <Container>
       <Wrapper>
         <Title>Sign in</Title>
-        <SubTitle>to continue to LamaTube</SubTitle>
+        <SubTitle>to continue to YouGram</SubTitle>
         <Input
           placeholder="username"
           onChange={(e) => setName(e.target.value)}

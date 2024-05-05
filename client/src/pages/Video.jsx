@@ -131,9 +131,13 @@ const Video = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const videoRes = await axios.get(`${process.env.REACT_APP_API}/videos/find/${path}`);
+        const videoRes = await axios.get(
+          `${process.env.REACT_APP_API}/videos/find/${path}`,
+          { withCredentials: true }
+        );
         const channelRes = await axios.get(
-          `/users/find/${videoRes.data.userId}`
+          `/users/find/${videoRes.data.userId}`,
+          { withCredentials: true }
         );
         setChannel(channelRes.data);
         dispatch(fetchSuccess(videoRes.data));
@@ -143,18 +147,30 @@ const Video = () => {
   }, [path, dispatch]);
 
   const handleLike = async () => {
-    await axios.put(`${process.env.REACT_APP_API}/users/like/${currentVideo._id}`);
+    await axios.put(
+      `${process.env.REACT_APP_API}/users/like/${currentVideo._id}`,
+      { withCredentials: true }
+    );
     dispatch(like(currentUser._id));
   };
   const handleDislike = async () => {
-    await axios.put(`${process.env.REACT_APP_API}/users/dislike/${currentVideo._id}`);
+    await axios.put(
+      `${process.env.REACT_APP_API}/users/dislike/${currentVideo._id}`,
+      { withCredentials: true }
+    );
     dispatch(dislike(currentUser._id));
   };
 
   const handleSub = async () => {
     currentUser.subscribedUsers.includes(channel._id)
-      ? await axios.put(`${process.env.REACT_APP_API}/users/unsub/${channel._id}`)
-      : await axios.put(`${process.env.REACT_APP_API}/users/sub/${channel._id}`);
+      ? await axios.put(
+          `${process.env.REACT_APP_API}/users/unsub/${channel._id}`,
+          { withCredentials: true }
+        )
+      : await axios.put(
+          `${process.env.REACT_APP_API}/users/sub/${channel._id}`,
+          { withCredentials: true }
+        );
     dispatch(subscription(channel._id));
   };
 

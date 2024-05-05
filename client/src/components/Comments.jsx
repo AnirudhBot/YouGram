@@ -35,7 +35,10 @@ const Comments = ({ videoId }) => {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const res = await axios.get(`${process.env.REACT_APP_API}/comments/${videoId}`);
+        const res = await axios.get(
+          `${process.env.REACT_APP_API}/comments/${videoId}`,
+          { withCredentials: true }
+        );
         setComments(res.data);
       } catch (err) {}
     };
