@@ -148,14 +148,14 @@ const Video = () => {
 
   const handleLike = async () => {
     await axios.put(
-      `${process.env.REACT_APP_API}/users/like/${currentVideo._id}`,
+      `${process.env.REACT_APP_API}/users/like/${currentVideo?._id}`,
       { withCredentials: true }
     );
     dispatch(like(currentUser._id));
   };
   const handleDislike = async () => {
     await axios.put(
-      `${process.env.REACT_APP_API}/users/dislike/${currentVideo._id}`,
+      `${process.env.REACT_APP_API}/users/dislike/${currentVideo?._id}`,
       { withCredentials: true }
     );
     dispatch(dislike(currentUser._id));
@@ -178,24 +178,24 @@ const Video = () => {
     <Container>
       <Content>
         <VideoWrapper>
-          <VideoFrame src={currentVideo.videoUrl} controls />
+          <VideoFrame src={currentVideo?.videoUrl} controls />
         </VideoWrapper>
-        <Title>{currentVideo.title}</Title>
+        <Title>{currentVideo?.title}</Title>
         <Details>
           <Info>
-            {currentVideo.views} views • {format(currentVideo.createdAt)}
+            {currentVideo?.views} views • {format(currentVideo?.createdAt)}
           </Info>
           <Buttons>
             <Button onClick={handleLike}>
-              {currentVideo.likes?.includes(currentUser?._id) ? (
+              {currentVideo?.likes?.includes(currentUser?._id) ? (
                 <ThumbUpIcon />
               ) : (
                 <ThumbUpOutlinedIcon />
               )}{" "}
-              {currentVideo.likes?.length}
+              {currentVideo?.likes?.length}
             </Button>
             <Button onClick={handleDislike}>
-              {currentVideo.dislikes?.includes(currentUser?._id) ? (
+              {currentVideo?.dislikes?.includes(currentUser?._id) ? (
                 <ThumbDownIcon />
               ) : (
                 <ThumbDownOffAltOutlinedIcon />
@@ -217,7 +217,7 @@ const Video = () => {
             <ChannelDetail>
               <ChannelName>{channel.name}</ChannelName>
               <ChannelCounter>{channel.subscribers} subscribers</ChannelCounter>
-              <Description>{currentVideo.desc}</Description>
+              <Description>{currentVideo?.desc}</Description>
             </ChannelDetail>
           </ChannelInfo>
           <Subscribe onClick={handleSub}>
@@ -227,7 +227,7 @@ const Video = () => {
           </Subscribe>
         </Channel>
         <Hr />
-        <Comments videoId={currentVideo._id} />
+        <Comments videoId={currentVideo?._id} />
       </Content>
       {/* <Recommendation>
         <Card type="sm" />

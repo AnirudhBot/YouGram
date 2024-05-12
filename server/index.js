@@ -10,7 +10,7 @@ import commentRoutes from "./routes/comments.js";
 
 const app = express();
 dotenv.config();
-app.use(cors({ credentials: true, origin: process.env.ORIGIN }));
+app.use(cors({origin: process.env.ORIGIN, credentials: true }));
 
 const connect = () => {
   mongoose
