@@ -34,7 +34,6 @@ export const signin = async (req, res, next) => {
         httpOnly: true,
         secure: true,
         sameSite: "none",
-        domain: ".onrender.com"
       })
       .status(200)
       .json(others);
